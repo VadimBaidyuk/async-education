@@ -1,0 +1,6 @@
+D:\_prj\async-education\async-education\async-education\bin\Debug\async_education.exe
+D:\_prj\async-education\async-education\async-education\bin\Debug\async_education.pdb
+D:\_prj\async-education\async-education\async-education\obj\Debug\async-education.csprojAssemblyReference.cache
+D:\_prj\async-education\async-education\async-education\obj\Debug\async-education.csproj.CoreCompileInputs.cache
+D:\_prj\async-education\async-education\async-education\obj\Debug\async_education.exe
+D:\_prj\async-education\async-education\async-education\obj\Debug\async_education.pdb
