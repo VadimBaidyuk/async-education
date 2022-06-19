@@ -10,6 +10,7 @@ namespace async_education
     public class CreateFileStream
     {
         public const string FolderPath = "D:\\_prj\\async-education\\async-education\\async-education\\Artists\\";
+        
         public static FileStream FileStream { get; private set; }
         
         public static async Task RunTask()
@@ -24,15 +25,17 @@ namespace async_education
 
         private static Task CreateFile()
         {
-            var random = new Random(); 
             FileStream = File.Create(FolderPath + UkrainianArtist.Artists
-                .ElementAt(random.Next(0, UkrainianArtist.Artists.Count)));
+                .ElementAt(new Random().Next(0, UkrainianArtist.Artists.Count)));
 
             FileStream.Close();
-            File.WriteAllText(FileStream.Name, RandomString(random.Next(1, 2000)));
+            WriteText();
 
             return null;
         }
+
+        private static void WriteText() => 
+            File.WriteAllText(FileStream.Name, RandomString(new Random().Next(1, 2000)));
 
         private static string RandomString(int length)
         {
