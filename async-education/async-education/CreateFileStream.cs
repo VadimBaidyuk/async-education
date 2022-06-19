@@ -25,8 +25,8 @@ namespace async_education
         private static Task CreateFile()
         {
             var random = new Random(); 
-            FileStream = File.Create(FolderPath + UkrainianArtistBiography.Artists
-                .ElementAt(random.Next(0, UkrainianArtistBiography.Artists.Count)));
+            FileStream = File.Create(FolderPath + UkrainianArtist.Artists
+                .ElementAt(random.Next(0, UkrainianArtist.Artists.Count)));
 
             FileStream.Close();
             File.WriteAllText(FileStream.Name, RandomString(random.Next(1, 2000)));

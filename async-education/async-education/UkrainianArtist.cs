@@ -2,7 +2,7 @@
 
 namespace async_education
 {
-    public class UkrainianArtistBiography
+    public class UkrainianArtist
     {
         public static List<string> Artists = new List<string>()
         {
