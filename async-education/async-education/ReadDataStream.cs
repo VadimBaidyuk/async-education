@@ -6,7 +6,7 @@ namespace async_education
 {
     public class ReadDataStream
     {
-        public static async void StartReading() =>
+        public static async void UpdateConsoleData() =>
             await LoopReading();
 
         private static async Task LoopReading()
@@ -15,10 +15,10 @@ namespace async_education
                 
             await Task.Delay(TimeSpan.FromSeconds(1));
                 
-            ReadTask.Wait();
+            ReadDataTask.Wait();
         }
 
-        private static Task ReadTask = Task.Factory.StartNew(() =>
+        private static Task ReadDataTask = Task.Factory.StartNew(() =>
         {
             var size = new FileInfo(CreateFileStream.FileStream.Name).Length;
             var fileName = CreateFileStream.FileStream.Name.TrimStart(CreateFileStream.FolderPath.ToCharArray());

@@ -9,7 +9,7 @@ namespace async_education
             while (true)
             {
                 await CreateFileStream.RunTask(); 
-                ReadDataStream.StartReading();
+                ReadDataStream.UpdateConsoleData();
             }
         }
     }
