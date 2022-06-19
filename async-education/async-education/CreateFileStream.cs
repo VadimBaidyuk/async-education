@@ -9,13 +9,13 @@ namespace async_education
 {
     public class CreateFileStream
     {
-        private const string FolderPath = "D:\\_prj\\async-education\\async-education\\async-education\\Artists\\";
+        public const string FolderPath = "D:\\_prj\\async-education\\async-education\\async-education\\Artists\\";
         public static FileStream FileStream { get; private set; }
         
         public static async Task RunTask()
         {
             await Task.Delay(TimeSpan.FromSeconds(new Random().Next(1,20)));
-
+                
             await CreateFileTask();
         }
 

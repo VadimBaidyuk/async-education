@@ -6,8 +6,11 @@ namespace async_education
     {
         public static async Task Main(string[] args)
         {
-            await CreateFileStream.RunTask();
-            ReadDataStream.StartReading();       
+            while (true)
+            {
+                await CreateFileStream.RunTask(); 
+                ReadDataStream.StartReading();
+            }
         }
     }
 }
