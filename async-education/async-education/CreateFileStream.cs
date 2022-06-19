@@ -10,31 +10,33 @@ namespace async_education
     public class CreateFileStream
     {
         private const string FolderPath = "D:\\_prj\\async-education\\async-education\\async-education\\Artists\\";
-        public static StreamWriter StreamWriter { get; private set; }
+        public static FileStream FileStream { get; private set; }
         
-        public static void RunTask()
+        public static async Task RunTask()
         {
-            Thread.Sleep(new Random().Next(1000,2000));
-            
-            createFileTask.Start();
-            createFileTask.Wait();
+            await Task.Delay(TimeSpan.FromSeconds(new Random().Next(1,20)));
+
+            await CreateFileTask();
         }
 
-        private static readonly Task createFileTask = new Task(CreateFile);
+        private static async Task CreateFileTask() => 
+            await Task.Run(CreateFile);
 
-        private static void CreateFile()
+        private static Task CreateFile()
         {
-            var random = new Random();
-            StreamWriter = new StreamWriter(FolderPath + UkrainianArtistBiography.Artists
+            var random = new Random(); 
+            FileStream = File.Create(FolderPath + UkrainianArtistBiography.Artists
                 .ElementAt(random.Next(0, UkrainianArtistBiography.Artists.Count)));
 
-            var text = RandomString(random.Next(1, 2000));
-            StreamWriter.WriteLine(text);
+            FileStream.Close();
+            File.WriteAllText(FileStream.Name, RandomString(random.Next(1, 2000)));
+
+            return null;
         }
 
         private static string RandomString(int length)
         {
-            const string chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+            var chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
             
             return new string(Enumerable.Repeat(chars, length)
                 .Select(s => s[new Random().Next(s.Length)]).ToArray());

@@ -1,10 +1,13 @@
-﻿namespace async_education
+﻿using System.Threading.Tasks;
+
+namespace async_education
 {
     internal class Program
     {
-        public static void Main(string[] args)
+        public static async Task Main(string[] args)
         {
-            CreateFileStream.RunTask();
+            await CreateFileStream.RunTask();
+            ReadDataStream.StartReading();       
         }
     }
 }
